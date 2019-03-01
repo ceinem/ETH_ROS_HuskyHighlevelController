@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+	<rosparam param="/use_sim_time">true</rosparam>
+
+	<node pkg="rviz" type="rviz" name="rviz"/>
+
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+	
+	<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+		<rosparam command="load" file="$(find husky_control)/config/localization.yaml"/>
+	</node>
+	
+</launch>
